@@ -16,6 +16,16 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# Global variables
+PROGRAM_NAME="$0"
+
+# Function that prints an error messages and exits
+error()
+{
+    echo "$PROGRAM_NAME: error: $*"
+    exit 1
+}
+
 # Output welcome message
 cat <<EOF
 Welcome to the snow leopard root file system builder.
@@ -28,11 +38,20 @@ Note: Only official installers supported. If you use a modded DVD with package f
 Please insert your snow leopard dvd in to your optical disk drive, or put your snow leopard dvd image in .dmg format in to the directory where the script is located, and name it sl.dmg.
 EOF
 
-echo mounting sl.dmg if prezent…
-hdiutil attach sl.dmg
+# Mount sl.dmg (if present)
+if test -f sl.dmg && test -r sl.dmg; then
+    # File exists and is readable
+    echo 'Found "sl.dmg" disk image, mounting it'
+    hdiutil attach sl.dmg
+fi
 
 echo Creating work directory…
 mkdir slwork
+
+# Check we can access the installer volume
+if [ ! -d "/Volumes/Mac OS X Install DVD/" ]; then
+    error "couldn't find install media. Check that your DVD is mounted, or make sure \"sl.dmg\" exists in the current directory"
+fi
 
 echo Extracting packages. This may take a while. Please do not eject or unplug your snow leopard installation media during this process...
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/AdditionalEssentials.pkg slwork/pkg1
