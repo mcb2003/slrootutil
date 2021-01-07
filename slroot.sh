@@ -1,4 +1,20 @@
 #!/bin/sh
+#    slrootutil - A MacOSX snow leopard root file system creator
+#    Copyright (C) 2021  Stanisław Przedzinkowski
+#    Copyright (C) 2021  Michael Connor Buchan
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 echo "Welcome to the snow leopard root file system builder."
 echo "This utility aims at assisting you in creating a snow leopard root file system out of installer packages bundled on the snow leopard installation DVD."
