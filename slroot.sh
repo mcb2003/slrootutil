@@ -33,8 +33,7 @@ pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packa
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/iTunes.pkg slwork/pkg23
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/Japanese.pkg slwork/pkg24
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/Java.pkg slwork/pkg25
-pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/JavaTools.pkg slwork/pkg26
-pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/Korean.pkg slwork/pkg27
+pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/JavaTools.pkg slwork/pkg26pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/Korean.pkg slwork/pkg27
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/Mail.pkg slwork/pkg28
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/MediaFiles.pkg slwork/pkg29
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/MigrationAssistant.pkg slwork/pkg30
