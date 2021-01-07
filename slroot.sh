@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "Welcome to the snow leopard root file system builder."
 echo "This utility aims at assisting you in creating a snow leopard root file system out of installer packages bundled on the snow leopard installation DVD."
 echo "Disclaimer: This tool may be extremely buggy. There is no error checking at all. This is just a simple script i made, and i hope to improve it in the future, but for now its just a set of commands for MacOS to execute. If something is terribly broken, or i made a mistake that causes the whole script to fail on other people’s computers, feel free to post an issue on github or make a pul request and we, the all mighty open source community, wil be hopefully able to fix the issue."
