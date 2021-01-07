@@ -16,15 +16,24 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-echo "Welcome to the snow leopard root file system builder."
-echo "This utility aims at assisting you in creating a snow leopard root file system out of installer packages bundled on the snow leopard installation DVD."
-echo "Disclaimer: This tool may be extremely buggy. There is no error checking at all. This is just a simple script i made, and i hope to improve it in the future, but for now its just a set of commands for MacOS to execute. If something is terribly broken, or i made a mistake that causes the whole script to fail on other people’s computers, feel free to post an issue on github or make a pul request and we, the all mighty open source community, wil be hopefully able to fix the issue."
-echo "Note: Only official installers supported. If you use a modded DVD with package files being placed in the wrong order, you may get an undesired result."
-echo “Please insert your snow leopard dvd in to your optical disk drive, or put your snow leopard dvd image in .dmg format in to the directory where the script is located, and name it sl.dmg.”
+# Output welcome message
+cat <<EOF
+Welcome to the snow leopard root file system builder.
+This utility aims at assisting you in creating a snow leopard root file system out of installer packages bundled on the snow leopard installation DVD.
+
+Disclaimer: This tool may be extremely buggy. There is no error checking at all. This is just a simple script i made, and i hope to improve it in the future, but for now its just a set of commands for MacOS to execute. If something is terribly broken, or i made a mistake that causes the whole script to fail on other people’s computers, feel free to post an issue on github or make a pul request and we, the all mighty open source community, wil be hopefully able to fix the issue.
+
+Note: Only official installers supported. If you use a modded DVD with package files being placed in the wrong order, you may get an undesired result.
+
+Please insert your snow leopard dvd in to your optical disk drive, or put your snow leopard dvd image in .dmg format in to the directory where the script is located, and name it sl.dmg.
+EOF
+
 echo mounting sl.dmg if prezent…
 hdiutil attach sl.dmg
+
 echo Creating work directory…
 mkdir slwork
+
 echo Extracting packages. This may take a while. Please do not eject or unplug your snow leopard installation media during this process...
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/AdditionalEssentials.pkg slwork/pkg1
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/AdditionalFonts.pkg slwork/pkg2
@@ -74,8 +83,10 @@ pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packa
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/TraditionalChinese.pkg slwork/pkg47
 pkgutil --expand-ful /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/X11User.pkg slwork/pkg48
 echo Packages extracted successfully.
+
 echo Creating RootFS directory...
 mkdir slrootfs
+
 echo Merging packages to RootFS...
 cp -r slwork/pkg*/payload/* slrootfs
 echo Done. Your newly created snow leopard RootFS is in the slrootfs sub directory of your current directory. You can take a look in the slwork directory to see how snow leopard packages look like inside, or delete that directory using finder or by running "rm -rf slwork".
