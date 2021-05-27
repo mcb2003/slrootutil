@@ -19,7 +19,7 @@
 # Global variables
 PROGRAM_NAME="$0"
 
-# Function that prints an error messages and exits
+# Function that prints an error message and exits
 error()
 {
     echo "$PROGRAM_NAME: error: $*"
@@ -28,12 +28,20 @@ error()
 
 # Output welcome message
 cat <<EOF
-Welcome to the snow leopard root file system builder.
-This utility aims at assisting you in creating a snow leopard root file system out of installer packages bundled on the snow leopard installation DVD.
+Welcome to the snow leopard root file system builder.  This utility aims
+to assist you in creating a snow leopard root file system out of installer
+packages bundled on the snow leopard installation DVD.
 
-Disclaimer: This tool may be extremely buggy. There is no error checking at all. This is just a simple script i made, and i hope to improve it in the future, but for now its just a set of commands for MacOS to execute. If something is terribly broken, or i made a mistake that causes the whole script to fail on other people’s computers, feel free to post an issue on github or make a pul request and we, the all mighty open source community, wil be hopefully able to fix the issue.
+Disclaimer: This tool may be extremely buggy! There is no error checking at
+all! This is just a simple script i made, and i hope to improve it in the
+future, but for now its just a set of commands for MacOS to execute. If
+something is terribly broken, or i made a mistake that causes the whole
+script to fail on other people’s computers, feel free to post an issue on
+Github or make a pull request and we, the all mighty open source community,
+will hopefully be able to fix the issue.
 
-Note: Only official installers supported. If you use a modded DVD with package files being placed in the wrong order, you may get an undesired result.
+Note: Only official installers supported. If you use a modded DVD with
+package files being placed in the wrong order, you may get an undesired result.
 
 Please insert your snow leopard dvd in to your optical disk drive, or put your snow leopard dvd image in .dmg format in to the directory where the script is located, and name it sl.dmg.
 EOF
@@ -108,4 +116,10 @@ mkdir slrootfs
 
 echo Merging packages to RootFS...
 cp -r slwork/pkg*/payload/* slrootfs
-echo Done. Your newly created snow leopard RootFS is in the slrootfs sub directory of your current directory. You can take a look in the slwork directory to see how snow leopard packages look like inside, or delete that directory using finder or by running "rm -rf slwork".
+
+cat <<EOF
+Done. Your newly created snow leopard RootFS is in "./slrootfs"
+ You can take a look in the slwork directory to
+see how snow leopard packages look inside, or delete that directory using
+finder or by running "rm -rf slwork".
+EOF
